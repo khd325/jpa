@@ -21,6 +21,11 @@ public class JpaMain {
             member.setUsername("member1");
             em.persist(member);
 
+            Locker locker = new Locker();
+            locker.setName("lockerA");
+            em.persist(locker);
+
+            member.setLocker(locker);
             Team team = new Team();
             team.setName("teamA");
             team.getMembers().add(member);
