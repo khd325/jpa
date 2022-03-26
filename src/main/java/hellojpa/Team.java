@@ -1,8 +1,6 @@
 package hellojpa;
 
 
-import org.w3c.dom.stylesheets.LinkStyle;
-
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,16 +14,12 @@ public class Team {
 
     private String name;
 
-    @OneToMany(mappedBy = "team")
+    @OneToMany
+    @JoinColumn(name = "TEAM_ID")
     private List<Member> members = new ArrayList<>();
 
     public List<Member> getMembers() {
         return members;
-    }
-
-    public void addMember(Member member) {
-        member.setTeam(this);
-        members.add(member);
     }
 
     public void setMembers(List<Member> members) {
@@ -46,15 +40,6 @@ public class Team {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    @Override
-    public String toString() {
-        return "Team{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", members=" + members +
-                '}';
     }
 
 }
