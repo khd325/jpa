@@ -30,6 +30,4 @@ public class Locker {
     public void setMember(Member member) {
         this.member = member;
     }
-
-
 }
